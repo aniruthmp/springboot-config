@@ -23,12 +23,34 @@ logging:
     org:
       springframework:
         security: DEBUG
-  com:
-    netflix:
-      eureka: OFF
-      discovery: OFF
+        web: DEBUG
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
 
-#spring.zipkin.host=${DOCKER_IP}
+spring:
+  zipkin:
+    host: ${DOCKER_IP}
+    base-url: http://${DOCKER_IP}:9411
+
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]:localhost}
+    nonSecurePort: 80
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+    leaseRenewalIntervalInSeconds: 5
+
+eureka:
+    client:
+      region: default
+      registryFetchIntervalSeconds: 5
+      preferSameZone: false
+      us-east-1:
+        availabilityZones: default
+      serviceUrl:
+        defaultZone: ${vcap.services.eureka-service.credentials.uri}/eureka/
 
 #spring.cloud.consul.host=${DOCKER_IP}
 #spring.cloud.consul.discovery.hostname=${DOCKER_HOST_IP:cna}
@@ -36,11 +58,7 @@ logging:
 #spring.rabbitmq.host=${DOCKER_IP}
 #spring.redis.host=${DOCKER_IP}
 
-#spring.zipkin.base-url=http://${DOCKER_IP}:9411
 #spring.zipkin.base-url=http://127.0.0.1:9411
-
-#eureka.instance.hostname=${vcap.application.uris[0]:localhost}
-#eureka.instance.nonSecurePort=80
 
 ## Rabbit specific binder bits
 # spring.cloud.stream.binder.rabbit.default.default-delivery-mode=persistent

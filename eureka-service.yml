@@ -1,8 +1,18 @@
 server:
   port: ${PORT:8761}
 
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
 eureka:
+  instance:
+    hostname: discovery
   client:
-    register-with-eureka: false
-    fetch-registry: false
-    # enabled: false
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
