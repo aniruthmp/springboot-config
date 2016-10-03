@@ -1,0 +1,13 @@
+server:
+  port: ${PORT:8000}
+
+message: Hello Ani!
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: reservations
+          group: reservations-group
+          durableSubscription: true
