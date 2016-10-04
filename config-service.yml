@@ -1,0 +1,32 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      server:
+        git:
+          uri: https://github.com/aniruthmp/springboot-config.git
+        health:
+          repositories:
+            movie:
+              label: master
+            rating:
+              label: master
+server:
+  port: 8888
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]:localhost:8888}
+    nonSecurePort: 80
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
