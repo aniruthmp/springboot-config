@@ -24,6 +24,11 @@ spring:
   rabbitmq:
       addresses: ${vcap.services.reservations-rabbitmq.credentials.uri}
       host: ${DOCKER_IP}
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      fail-fast: true
 
 logging:
   level:
