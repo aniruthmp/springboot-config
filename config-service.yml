@@ -23,8 +23,9 @@ endpoints:
     sensitive: false
 eureka:
   instance:
-    hostname: ${vcap.application.uris[0]:localhost:8888}
-    nonSecurePort: 80
+    hostname: configserver
+#    hostname: ${vcap.application.uris[0]:localhost:8888}
+#    nonSecurePort: 80
   client:
     registerWithEureka: true
     fetchRegistry: true

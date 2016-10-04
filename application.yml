@@ -11,6 +11,12 @@ spring:
     log:
       json:
         enabled: true
+  zipkin:
+    host: ${DOCKER_IP}
+    base-url: http://${DOCKER_IP}:9411
+  rabbitmq:
+      addresses: ${vcap.services.reservations-rabbitmq.credentials.uri}
+      host: ${DOCKER_IP}
 
 info:
   id: ${spring.application.name}
@@ -28,11 +34,6 @@ logging:
       netflix:
         eureka: OFF
         discovery: OFF
-
-spring:
-  zipkin:
-    host: ${DOCKER_IP}
-    base-url: http://${DOCKER_IP}:9411
 
 eureka:
   instance:
