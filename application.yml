@@ -1,4 +1,11 @@
 debug: true
+
+info:
+  id: ${spring.application.name}
+
+server:
+  port: ${PORT:0}
+
 endpoints:
   shutdown:
     enabled: true
@@ -17,12 +24,6 @@ spring:
   rabbitmq:
       addresses: ${vcap.services.reservations-rabbitmq.credentials.uri}
       host: ${DOCKER_IP}
-
-info:
-  id: ${spring.application.name}
-
-server:
-  port: ${PORT:0}
 
 logging:
   level:

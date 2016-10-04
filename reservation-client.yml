@@ -8,6 +8,23 @@ spring:
         output:
           destination: reservations
 
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+eureka:
+  instance:
+    hostname: gateway
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
 #security.oauth2.resource.userInfoUri=http://localhost:9191/uaa/user
 
 #hystrix.command.default.execution.isolation.strategy=SEMAPHORE

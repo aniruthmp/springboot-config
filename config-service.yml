@@ -6,12 +6,7 @@ spring:
       server:
         git:
           uri: https://github.com/aniruthmp/springboot-config.git
-        health:
-          repositories:
-            movie:
-              label: master
-            rating:
-              label: master
+
 server:
   port: 8888
 endpoints:
@@ -24,8 +19,6 @@ endpoints:
 eureka:
   instance:
     hostname: configserver
-#    hostname: ${vcap.application.uris[0]:localhost:8888}
-#    nonSecurePort: 80
   client:
     registerWithEureka: true
     fetchRegistry: true
