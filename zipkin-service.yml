@@ -10,21 +10,3 @@ spring:
 zipkin:
   store:
     type: mem
-
-
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    sensitive: false
-
-eureka:
-  instance:
-    hostname: zipkin
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/

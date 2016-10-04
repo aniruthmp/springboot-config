@@ -7,8 +7,13 @@ server:
   port: ${PORT:0}
 
 endpoints:
+  restart:
+    enabled: true
   shutdown:
     enabled: true
+  health:
+    sensitive: false
+
 spring:
   jpa:
     generate-ddl: true
@@ -41,23 +46,38 @@ logging:
         eureka: OFF
         discovery: OFF
 
-eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]:localhost}
-    nonSecurePort: 80
-    metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
-    leaseRenewalIntervalInSeconds: 5
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
 
 eureka:
-    client:
-      region: default
-      registryFetchIntervalSeconds: 5
-      preferSameZone: false
-      us-east-1:
-        availabilityZones: default
-      serviceUrl:
-        defaultZone: ${vcap.services.eureka-service.credentials.uri}/eureka/
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+
+#eureka:
+#  instance:
+#    hostname: ${vcap.application.uris[0]:localhost}
+#    nonSecurePort: 80
+#    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+#    leaseRenewalIntervalInSeconds: 5
+#
+#eureka:
+#    client:
+#      region: default
+#      registryFetchIntervalSeconds: 5
+#      preferSameZone: false
+#      us-east-1:
+#        availabilityZones: default
+#      serviceUrl:
+#        defaultZone: ${vcap.services.eureka-service.credentials.uri}/eureka/
 
 #spring.cloud.consul.host=${DOCKER_IP}
 #spring.cloud.consul.discovery.hostname=${DOCKER_HOST_IP:cna}

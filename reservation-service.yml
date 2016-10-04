@@ -11,20 +11,3 @@ spring:
           destination: reservations
           group: reservations-group
           durableSubscription: true
-
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    sensitive: false
-
-eureka:
-  instance:
-    hostname: reservation
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/

@@ -5,12 +5,6 @@ server:
 security:
   sessions: if_required
 
-logging:
-  level:
-    org:
-      springframework:
-        security: DEBUG
- 
 # security.user.name=user
 # security.user.password: password
 
