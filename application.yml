@@ -29,11 +29,11 @@ spring:
   rabbitmq:
       addresses: ${vcap.services.reservations-rabbitmq.credentials.uri}
       host: localhost
-  cloud:
-    config:
-      discovery:
-        enabled: true
-      fail-fast: true
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true
+#      fail-fast: true
 
 logging:
   level:
@@ -54,44 +54,10 @@ hystrix:
           thread:
             timeoutInMilliseconds: 10000
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-
 #eureka:
 #  instance:
-#    hostname: ${vcap.application.uris[0]:localhost}
-#    nonSecurePort: 80
-#    metadataMap:
-#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
-#    leaseRenewalIntervalInSeconds: 5
-#
-#eureka:
-#    client:
-#      region: default
-#      registryFetchIntervalSeconds: 5
-#      preferSameZone: false
-#      us-east-1:
-#        availabilityZones: default
-#      serviceUrl:
-#        defaultZone: ${vcap.services.eureka-service.credentials.uri}/eureka/
+#    prefer-ip-address: true
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
 
-#spring.cloud.consul.host=${DOCKER_IP}
-#spring.cloud.consul.discovery.hostname=${DOCKER_HOST_IP:cna}
-
-#spring.rabbitmq.host=${DOCKER_IP}
-#spring.redis.host=${DOCKER_IP}
-
-#spring.zipkin.base-url=http://127.0.0.1:9411
-
-## Rabbit specific binder bits
-# spring.cloud.stream.binder.rabbit.default.default-delivery-mode=persistent
-# spring.cloud.stream.binder.rabbit.default.acknowledge-mode=manual
-# spring.cloud.stream.binder.rabbit.default.durable-subscription=true
-# spring.cloud.stream.binder.rabbit.default.transacted=true
-# spring.cloud.stream.binder.rabbit.default.default-requeue-rejected=true
-# spring.cloud.stream.binder.rabbit.default.auto-bind-dlq=true
-# spring.cloud.stream.binder.rabbit.default.republish-to-dlq=true
