@@ -56,9 +56,12 @@ hystrix:
 
 eureka:
   instance:
+    hostname: localhost
+    nonSecurePort: 8080
     prefer-ip-address: false
-    registerWithEureka: true
-        fetchRegistry: true
+    leaseRenewalIntervalInSeconds: 5
   client:
+    region: default
+    registryFetchIntervalSeconds: 5
     serviceUrl:
       defaultZone: http://discovery:8761/eureka/
