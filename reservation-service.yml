@@ -12,17 +12,6 @@ spring:
           group: reservations-group
           durableSubscription: true
 
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web: DEBUG
-
 eureka:
   instance:
     hostname: reservation-service
