@@ -29,11 +29,6 @@ spring:
   rabbitmq:
       addresses: ${vcap.services.reservations-rabbitmq.credentials.uri}
       host: localhost
-#  cloud:
-#    config:
-#      discovery:
-#        enabled: true
-#      fail-fast: true
 
 logging:
   level:
