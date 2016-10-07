@@ -18,6 +18,3 @@ logging:
 eureka:
   instance:
     hostname: hystrix-dashboard
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
