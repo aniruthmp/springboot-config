@@ -4,10 +4,7 @@ server:
 info:
   component: Hystrix Dashboard
 
-server:
-  port: 8010
-
-endpoints:
+gendpoints:
   restart:
     enabled: true
   shutdown:
