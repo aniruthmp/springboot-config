@@ -10,3 +10,13 @@ spring:
 zipkin:
   store:
     type: mem
+
+### Docker Properties Start ###
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://discovery:8761/eureka/
+#  instance:
+#    virtual-host-name: ${spring.application.name}
+#    leaseRenewalIntervalInSeconds: 10
+### Docker Properties End ###

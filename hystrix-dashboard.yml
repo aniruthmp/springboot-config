@@ -4,17 +4,12 @@ server:
 info:
   component: Hystrix Dashboard
 
-gendpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-
-logging:
-  level:
-    ROOT: INFO
-    org.springframework.web: DEBUG
-
-eureka:
-  instance:
-    hostname: hystrix-dashboard
+### Docker Properties Start ###
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://discovery:8761/eureka/
+#  instance:
+#    virtual-host-name: ${spring.application.name}
+#    leaseRenewalIntervalInSeconds: 10
+### Docker Properties End ###

@@ -3,19 +3,19 @@ server:
 
 message: Hello Ani!
 
-spring:
-  cloud:
-    stream:
-      bindings:
-        input:
-          destination: reservations
-          group: reservations-group
-          durableSubscription: true
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    leaseRenewalIntervalInSeconds: 10
 
-eureka:
-  instance:
-    hostname: reservation-service
-
-ribbon:
-  eureka:
-    enabled: true
+### Docker Properties Start ###
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://discovery:8761/eureka/
+#  instance:
+#    virtual-host-name: ${spring.application.name}
+#    leaseRenewalIntervalInSeconds: 10
+### Docker Properties End ###
