@@ -1,21 +1,3 @@
-spring:
-  profiles.active: default
----
-spring:
-  profiles: default
-  spring:
-    jpa:
-      generate-ddl: true
-    sleuth:
-      sampler:
-        percentage: 1.0
-      log:
-        json:
-          enabled: true
-    zipkin:
-      host: localhost
-      base-url: http://localhost:9411
-
 info:
   id: ${spring.application.name}
 
@@ -27,6 +9,25 @@ endpoints:
   health:
     sensitive: false
 
+spring:
+  profiles.active: default
+
+---
+
+spring:
+  profiles: default
+  jpa:
+    generate-ddl: true
+  sleuth:
+    sampler:
+      percentage: 1.0
+    log:
+      json:
+        enabled: true
+  zipkin:
+    host: localhost
+    base-url: http://localhost:9411
+
 eureka:
   client:
     serviceUrl:
@@ -35,10 +36,8 @@ eureka:
     virtual-host-name: ${spring.application.name}
     leaseRenewalIntervalInSeconds: 10
 
-server:
-  port: 8888
-
 ---
+
 spring:
    profiles: docker
    spring:
@@ -54,17 +53,6 @@ spring:
        host: zipkin-service
        base-url: http://zipkin-service:9411
 
-info:
- id: ${spring.application.name}
-
-endpoints:
- restart:
-   enabled: true
- shutdown:
-   enabled: true
- health:
-   sensitive: false
-
 eureka:
   client:
     serviceUrl:
@@ -72,6 +60,3 @@ eureka:
   instance:
     virtual-host-name: ${spring.application.name}
     leaseRenewalIntervalInSeconds: 10
-
-server:
-  port: 8888
