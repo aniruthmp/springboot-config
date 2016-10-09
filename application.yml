@@ -48,16 +48,16 @@ spring:
        host: zipkin-service
        base-url: http://zipkin-service:9411
 
-   info:
-     id: ${spring.application.name}
+info:
+ id: ${spring.application.name}
 
-   endpoints:
-     restart:
-       enabled: true
-     shutdown:
-       enabled: true
-     health:
-       sensitive: false
+endpoints:
+ restart:
+   enabled: true
+ shutdown:
+   enabled: true
+ health:
+   sensitive: false
 
 eureka:
   client:
