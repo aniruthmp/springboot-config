@@ -1,15 +1,8 @@
-info:
-  id: ${spring.application.name}
-
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    sensitive: false
-
 spring:
+  profiles.active: default
+---
+spring:
+  profiles: default
   jpa:
     generate-ddl: true
   sleuth:
@@ -22,7 +15,50 @@ spring:
     host: localhost
     base-url: http://localhost:9411
 
-### Docker Properties Start ###
+info:
+  id: ${spring.application.name}
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    virtual-host-name: ${spring.application.name}
+    leaseRenewalIntervalInSeconds: 10
+---
+spring:
+   profiles: docker
+   jpa:
+       generate-ddl: true
+     sleuth:
+       sampler:
+         percentage: 1.0
+       log:
+         json:
+           enabled: true
+     zipkin:
+       host: zipkin-service
+       base-url: http://zipkin-service:9411
+
+   info:
+     id: ${spring.application.name}
+
+   endpoints:
+     restart:
+       enabled: true
+     shutdown:
+       enabled: true
+     health:
+       sensitive: false
+
 eureka:
   client:
     serviceUrl:
@@ -30,4 +66,3 @@ eureka:
   instance:
     virtual-host-name: ${spring.application.name}
     leaseRenewalIntervalInSeconds: 10
-### Docker Properties End ###
