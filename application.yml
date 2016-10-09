@@ -16,18 +16,17 @@ spring:
 
 spring:
    profiles: default
-   spring:
-     jpa:
-         generate-ddl: true
-     sleuth:
-       sampler:
-         percentage: 1.0
-       log:
-         json:
-           enabled: true
-     zipkin:
-       host: zipkin-service
-       base-url: http://zipkin-service:9411
+   jpa:
+     generate-ddl: true
+   sleuth:
+     sampler:
+       percentage: 1.0
+     log:
+       json:
+         enabled: true
+   zipkin:
+     host: zipkin-service
+     base-url: http://zipkin-service:9411
 
 eureka:
   client:
