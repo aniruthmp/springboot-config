@@ -26,7 +26,7 @@ spring:
      json:
        enabled: true
   zipkin:
-    host: zipkin-service
+    host: 192.168.5.107
     port: 9411
     # baseUrl: http://zipkin-service:9411
 
