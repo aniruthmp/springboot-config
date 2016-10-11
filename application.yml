@@ -1,7 +1,10 @@
 debug: true
 
 logging:
-  level: debug
+  level:
+    root: DEBUG
+    org:
+      springframework: DEBUG
 
 info:
   id: ${spring.application.name}
