@@ -5,11 +5,11 @@ ribbon:
   eureka:
     enabled: true
 
-zuul:
-  ignoredServices: '*'
-  routes:
-    reservation-service:
-      path: /reservation-service/**
-      serviceId: reservation-service
-      stripPrefix: false
-      sensitiveHeaders: Authorization
+#zuul:
+#  ignoredServices: '*'
+#  routes:
+#    reservation-service:
+#      path: /reservation-service/**
+#      serviceId: reservation-service
+#      stripPrefix: false
+#      sensitiveHeaders: Authorization
