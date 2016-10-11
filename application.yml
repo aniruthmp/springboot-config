@@ -47,6 +47,8 @@ eureka:
     registerWithEureka: true
     serviceUrl:
       defaultZone: http://discovery:8761/eureka/
+    fetchRegistry: true
+
 ---
 
 spring:
@@ -68,3 +70,4 @@ eureka:
     registerWithEureka: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+    fetchRegistry: true
