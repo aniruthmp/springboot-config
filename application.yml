@@ -26,8 +26,7 @@ spring:
        json:
          enabled: true
    zipkin:
-#     host: zipkin-service
-     base-url: http://zipkin-service:9411
+     baseUrl: http://zipkin-service:9411
 
 eureka:
   instance:
