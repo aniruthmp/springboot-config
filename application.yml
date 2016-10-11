@@ -1,10 +1,10 @@
-debug: true
-
-logging:
-  level:
-    root: DEBUG
-    org:
-      springframework: DEBUG
+#debug: true
+#
+#logging:
+#  level:
+#    root: DEBUG
+#    org:
+#      springframework: DEBUG
 
 info:
   id: ${spring.application.name}
