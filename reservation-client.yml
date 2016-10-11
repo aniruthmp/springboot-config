@@ -1,7 +1,15 @@
 server:
   port: ${PORT:9999}
 
+ribbon:
+  eureka:
+    enabled: true
+
 zuul:
+  ignoredServices: '*'
   routes:
-     path: /reservation-service/**
-     service-id: reservation-service
+    reservation-service:
+      path: /reservation-service/**
+      serviceId: reservation-service
+      stripPrefix: false
+      sensitiveHeaders: Authorization
