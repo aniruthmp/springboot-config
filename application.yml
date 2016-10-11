@@ -35,8 +35,8 @@ spring:
        enabled: true
   zipkin:
     enabled: true
-#    host: zipkin-service
-    base-url: http://zipkin-service:9411/
+    host: localhost
+    base-url: http://localhost:9411/
 
 eureka:
   instance:
