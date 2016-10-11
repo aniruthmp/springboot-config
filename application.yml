@@ -17,6 +17,12 @@ endpoints:
   health:
     sensitive: false
 
+ribbon:
+  client:
+    name: ${spring.application.name}
+  eureka:
+    enabled: true
+
 spring:
   profiles:
     active: default
