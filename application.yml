@@ -1,3 +1,5 @@
+debug: true
+
 info:
   id: ${spring.application.name}
 
