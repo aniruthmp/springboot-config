@@ -1,16 +1,16 @@
 server:
   port: ${PORT:9999}
 
-zuul:
-  ignoredServices: '*'
-  routes:
-    reservation-service:
-      path: /reservation-service/**
-      serviceId: reservation-service
-      stripPrefix: false
-      sensitiveHeaders: Authorization
-    venue-service:
-      path: /venue-service/**
-      serviceId: venue-service
-      stripPrefix: false
-      sensitiveHeaders: Authorization
+#zuul:
+#  ignoredServices: '*'
+#  routes:
+#    reservation-service:
+#      path: /reservation-service/**
+#      serviceId: reservation-service
+#      stripPrefix: false
+#      sensitiveHeaders: Authorization
+#    venue-service:
+#      path: /venue-service/**
+#      serviceId: venue-service
+#      stripPrefix: false
+#      sensitiveHeaders: Authorization
