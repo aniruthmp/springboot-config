@@ -9,3 +9,8 @@ zuul:
       serviceId: reservation-service
       stripPrefix: false
       sensitiveHeaders: Authorization
+    venue-service:
+      path: /venue-service/**
+      serviceId: venue-service
+      stripPrefix: false
+      sensitiveHeaders: Authorization
