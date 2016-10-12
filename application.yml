@@ -46,8 +46,8 @@ spring:
        enabled: true
   zipkin:
     enabled: true
-#    host: zipkin
-    base-url: http://zipkin-service:9411/
+    host: zipkin-service
+    baseUrl: http://zipkin-service:9411/
 
 eureka:
   instance:
@@ -57,7 +57,6 @@ eureka:
     leaseRenewalIntervalInSeconds: 10
     metadataMap:
       instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-#    hostname: discovery
   client:
     registerWithEureka: true
     serviceUrl:
