@@ -24,6 +24,11 @@ ribbon:
     enabled: true
 
 spring:
+  cloud:
+    inetutils:
+      ignoredInterfaces:
+        - docker0
+        - veth.*
   profiles:
     active: default
 
@@ -42,13 +47,17 @@ spring:
   zipkin:
     enabled: true
 #    host: zipkin
-#    base-url: http://localhost:9411/
+    base-url: http://zipkin-service:9411/
 
 eureka:
   instance:
+    appname: ${spring.application.name}
     virtual-host-name: ${spring.application.name}
+    instanceId: ${spring.application.name}
     leaseRenewalIntervalInSeconds: 10
-    hostname: discovery
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+#    hostname: discovery
   client:
     registerWithEureka: true
     serviceUrl:
