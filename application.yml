@@ -51,7 +51,6 @@ spring:
 
 eureka:
   instance:
-    hostname: ${spring.application.name}
     appname: ${spring.application.name}
     virtual-host-name: ${spring.application.name}
     instanceId: ${spring.application.name}
