@@ -54,8 +54,6 @@ eureka:
     instanceId: ${spring.application.name}
     leaseRenewalIntervalInSeconds: 10
     nonSecurePortEnabled: true
-    preferIpAddress: true
-    ipAddress: ${server.address}
     metadataMap:
       instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
