@@ -46,15 +46,17 @@ spring:
        enabled: true
   zipkin:
     enabled: true
-    host: zipkin-service
+#    host: zipkin-service
     baseUrl: http://zipkin-service:9411/
 
 eureka:
   instance:
+    hostname: ${spring.application.name}
     appname: ${spring.application.name}
     virtual-host-name: ${spring.application.name}
     instanceId: ${spring.application.name}
     leaseRenewalIntervalInSeconds: 10
+    nonSecurePortEnabled: true
     metadataMap:
       instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
