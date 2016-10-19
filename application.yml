@@ -27,7 +27,7 @@ spring:
 ---
 
 spring:
-  profiles: default
+  profiles: docker
   jpa:
    generate-ddl: true
   sleuth:
@@ -59,7 +59,7 @@ eureka:
 ---
 
 spring:
-  profiles: dev
+  profiles: default
   jpa:
     generate-ddl: true
   sleuth:
