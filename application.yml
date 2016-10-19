@@ -1,11 +1,3 @@
-#debug: true
-#
-#logging:
-#  level:
-#    root: DEBUG
-#    org:
-#      springframework: DEBUG
-
 info:
   id: ${spring.application.name}
 
@@ -46,12 +38,14 @@ spring:
        enabled: true
   zipkin:
     enabled: true
+    host: zipkin
+    base-url: http://zipkin:9411
 
 eureka:
   instance:
-    appname: ${spring.application.name}
-    virtual-host-name: ${spring.application.name}
-    instanceId: ${spring.application.name}
+    # appname: ${spring.application.name}
+    # virtual-host-name: ${spring.application.name}
+    # instanceId: ${spring.application.name}
     leaseRenewalIntervalInSeconds: 10
     nonSecurePortEnabled: true
     metadataMap:

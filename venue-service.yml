@@ -1,2 +1,36 @@
 server:
   port: ${PORT:7000}
+
+spring:
+  cloud:
+    inetutils:
+      ignoredInterfaces:
+        - docker0
+        - veth.*
+  profiles:
+    active: default
+
+---
+
+spring:
+  profiles: default
+  couchbase:
+    bucket:
+      name: default
+      password:
+    env:
+      ssl:
+        enabled: false
+
+---
+
+spring:
+  profiles: dev
+  couchbase:
+    bootstrap-hosts: 127.0.0.1
+    bucket:
+      name: venue
+      password:
+    env:
+      ssl:
+        enabled: false
