@@ -1,6 +1,14 @@
 server:
-  port: ${PORT:7000}
-management.port: 9006
+  port: ${PORT:6000}
+management.port: 9008
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
 
 spring:
   cloud:
@@ -10,10 +18,9 @@ spring:
         - veth.*
     stream:
       bindings:
-        input:
+        output:
           destination: venuetopic
           content-type: application/json
-          group: venuegroup
           resetOffsets: true
   profiles:
     active: default
@@ -42,7 +49,7 @@ spring:
   couchbase:
     bootstrap-hosts: 127.0.0.1
     bucket:
-      name: default
+      name: venue
       password:
     env:
       ssl:

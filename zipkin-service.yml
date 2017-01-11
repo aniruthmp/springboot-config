@@ -1,5 +1,6 @@
 server:
   port: ${PORT:9411}
+management.port: 9004
 
 spring:
   datasource:

@@ -1,6 +1,11 @@
 info:
   id: ${spring.application.name}
 
+management:
+  port: 9000
+  context-path: /admin
+  info.git.mode: full
+  
 endpoints:
   restart:
     enabled: true
@@ -14,6 +19,17 @@ ribbon:
     name: ${spring.application.name}
   eureka:
     enabled: true
+
+###
+# Logging Configuration
+###
+logging:
+  level:
+    root: WARN
+    org:
+      springframework: ERROR
+      hibernate: ERROR
+    com.carnival: INFO
 
 spring:
   cloud:
@@ -43,9 +59,6 @@ spring:
 
 eureka:
   instance:
-    # appname: ${spring.application.name}
-    # virtual-host-name: ${spring.application.name}
-    # instanceId: ${spring.application.name}
     leaseRenewalIntervalInSeconds: 10
     nonSecurePortEnabled: true
     metadataMap:
@@ -78,3 +91,5 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
     fetchRegistry: true
+
+logging.file: 

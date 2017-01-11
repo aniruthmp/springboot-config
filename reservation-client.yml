@@ -1,5 +1,6 @@
 server:
   port: ${PORT:9999}
+management.port: 9007
 
 hystrix:
   command:
@@ -8,3 +9,19 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 20000
+
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: kafka:9092
+      bindings:
+        output:
+          destination: venuetopic
+          content-type: application/json
+        input:
+          destination: venuetopic
+          content-type: application/json
+          group: timerGroup
+          resetOffsets: true

@@ -1,0 +1,11 @@
+server:
+  port: ${PORT:9999}
+management.port: 9000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000

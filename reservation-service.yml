@@ -1,4 +1,5 @@
 server:
-  port: ${PORT:8000}
+  port: ${PORT:8001}
+management.port: 9005
 
 message: Hi from Demo !!

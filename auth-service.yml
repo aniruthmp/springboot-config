@@ -1,0 +1,20 @@
+server:
+  port: ${PORT:7777}
+  context-path: /uaa
+management.port: 9009
+
+info:
+  component: OAuth Server
+
+security:
+  sessions: if_required
+  oauth2:
+    client:
+      clientId: acme
+      clientSecret: acmesecret
+      authorized-grant-types: authorization_code,refresh_token,implicit,password,client_credentials
+      scope: server
+
+logging:
+  level:
+    org.springframework.security: DEBUG
