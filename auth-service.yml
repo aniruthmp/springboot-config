@@ -2,7 +2,7 @@ server:
   port: ${PORT:7777}
   context-path: /uaa
 management.port: 9009
-
+  
 info:
   component: OAuth Server
 

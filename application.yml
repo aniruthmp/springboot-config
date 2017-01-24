@@ -1,11 +1,10 @@
 info:
   id: ${spring.application.name}
 
-#management:
-#  port: 9000
-#  context-path: /admin
-#  info.git.mode: full
-  
+management:
+ context-path: /admin
+ info.git.mode: full
+
 endpoints:
   restart:
     enabled: true
@@ -92,4 +91,4 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
     fetchRegistry: true
 
-logging.file: 
+logging.file:
