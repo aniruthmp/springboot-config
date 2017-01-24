@@ -25,10 +25,10 @@ ribbon:
 ###
 logging:
   level:
-    root: WARN
+    root: INFO
     org:
-      springframework: ERROR
-      hibernate: ERROR
+      springframework: INFO
+      hibernate: INFO
     com.carnival: INFO
 
 spring:
