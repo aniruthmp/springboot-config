@@ -1,10 +1,10 @@
 info:
   id: ${spring.application.name}
 
-management:
-  port: 9000
-  context-path: /admin
-  info.git.mode: full
+#management:
+#  port: 9000
+#  context-path: /admin
+#  info.git.mode: full
   
 endpoints:
   restart:
